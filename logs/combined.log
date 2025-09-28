@@ -37,3 +37,8 @@
 {"level":"info","message":"User parthbrajput4@gmail.com created successfully","service":"acquisitions-api"}
 {"level":"info","message":"User registered successfully","service":"acquisitions-api"}
 {"level":"info","message":"::1 - - [28/Sep/2025:17:55:10 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 200 109 \"-\" \"PostmanRuntime/7.45.0\"","service":"acquisitions-api"}
+{"level":"info","message":"User parthbrajput4@gmail.com authenticated successfully","service":"acquisitions-api"}
+{"level":"info","message":"User signed in successfully","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [28/Sep/2025:18:25:52 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 121 \"-\" \"PostmanRuntime/7.45.0\"","service":"acquisitions-api"}
+{"level":"info","message":"User signed out successfully","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [28/Sep/2025:18:26:17 +0000] \"POST /api/auth/sign-out HTTP/1.1\" 200 42 \"-\" \"PostmanRuntime/7.45.0\"","service":"acquisitions-api"}
