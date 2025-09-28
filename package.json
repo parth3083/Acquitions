@@ -9,7 +9,10 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "db:generate":"drizzle-kit generate",
+    "db:migrate":"drizzle-kit migrate",
+    "db:studio":"drizzle-kit studio"
   },
   "repository": {
     "type": "git",
@@ -24,7 +27,10 @@
   },
   "homepage": "https://github.com/parth3083/Acquitions#readme",
   "dependencies": {
+    "@neondatabase/serverless": "^1.0.1",
     "dotenv": "^17.2.2",
+    "drizzle-kit": "^0.31.5",
+    "drizzle-orm": "^0.44.5",
     "express": "^5.1.0"
   },
   "devDependencies": {
