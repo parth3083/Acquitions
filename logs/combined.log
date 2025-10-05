@@ -42,3 +42,7 @@
 {"level":"info","message":"::1 - - [28/Sep/2025:18:25:52 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 200 121 \"-\" \"PostmanRuntime/7.45.0\"","service":"acquisitions-api"}
 {"level":"info","message":"User signed out successfully","service":"acquisitions-api"}
 {"level":"info","message":"::1 - - [28/Sep/2025:18:26:17 +0000] \"POST /api/auth/sign-out HTTP/1.1\" 200 42 \"-\" \"PostmanRuntime/7.45.0\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:08:43:17 +0000] \"GET /health HTTP/1.1\" 200 74 \"-\" \"bruno-runtime/2.12.0\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:08:43:19 +0000] \"GET /health HTTP/1.1\" 200 74 \"-\" \"bruno-runtime/2.12.0\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:08:43:55 +0000] \"GET /health HTTP/1.1\" 200 75 \"-\" \"bruno-runtime/1.104.3\"","service":"acquisitions-api"}
+{"level":"info","message":"::1 - - [05/Oct/2025:08:44:29 +0000] \"GET /api HTTP/1.1\" 200 40 \"-\" \"bruno-runtime/1.104.3\"","service":"acquisitions-api"}
