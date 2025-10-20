@@ -1,0 +1,63 @@
+# Dependencies
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Environment files (will be injected at runtime)
+.env
+.env.development
+.env.production
+.env.local
+.env.*.local
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Docker
+Dockerfile
+docker-compose*.yml
+.dockerignore
+
+# Documentation
+README.md
+ARCHITECTURE.md
+WARP.md
+*.md
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Logs (will be mounted as volume)
+logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test files
+test
+tests
+**/*.test.js
+**/*.spec.js
+
+# CI/CD
+.github
+.gitlab-ci.yml
+
+# Neon Local metadata
+.neon_local
+
+# Bruno API testing
+Acquisitions-APIs
+
+# Misc
+.eslintrc*
+.prettierrc*
+eslint.config.js

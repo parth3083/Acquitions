@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  # Neon Local proxy for development
+  neon-local:
+    image: neondatabase/neon_local:latest
+    container_name: acquitions-neon-local
+    ports:
+      - "5432:5432"
+    environment:
+      - NEON_API_KEY=${NEON_API_KEY}
+      - NEON_PROJECT_ID=${NEON_PROJECT_ID}
+      - PARENT_BRANCH_ID=${PARENT_BRANCH_ID:-main}  # Creates ephemeral branches
+      - DELETE_BRANCH=true  # Auto-delete branch on container stop
+    volumes:
+      # Persistent storage for branch metadata (optional)
+      - ./.neon_local:/tmp/.neon_local
+      # Git integration for branch-per-feature support (optional)
+      - ./.git/HEAD:/tmp/.git/HEAD:ro
+    networks:
+      - acquitions-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h localhost -U neon"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Application service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: acquitions-app-dev
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - DATABASE_URL=postgres://neon:npg@neon-local:5432/neondb?sslmode=require
+      # Copy other environment variables from .env.development
+      - JWT_SECRET=${JWT_SECRET}
+      - JWT_EXPIRES_IN=${JWT_EXPIRES_IN}
+      - COOKIE_SECRET=${COOKIE_SECRET}
+      - ARCJET_KEY=${ARCJET_KEY}
+    env_file:
+      - .env.development
+    volumes:
+      # Mount source code for hot-reloading (development only)
+      - ./src:/app/src:ro
+      - ./logs:/app/logs
+    depends_on:
+      neon-local:
+        condition: service_healthy
+    networks:
+      - acquitions-network
+    restart: unless-stopped
+    command: node --watch src/index.js
+
+networks:
+  acquitions-network:
+    driver: bridge
